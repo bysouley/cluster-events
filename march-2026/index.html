@@ -6,7 +6,7 @@
   <title>CLUSTER — Ngonal Le Khawaré · 28 Mars 2026</title>
   <meta name="description" content="Un dîner exclusivement féminin. 50 places. Mermoz, Dakar. 28 Mars 2026." />
   <meta property="og:title" content="CLUSTER — Ngonal Le Khawaré" />
-  <meta property="og:description" content="Ce soir-là, vous serez nourries." />
+  <meta property="og:description" content="Un espace pour manger sans retenue, parler sans interruption, s'asseoir sans performance." />
   <meta property="og:url" content="https://bySouley.github.io/cluster-events/march-2026/" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,19 +14,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Karla:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <style>
+    /* ── CLUSTER BRAND COLORS ── */
     :root {
-      --green:       #008000;
-      --green-dark:  #005500;
-      --gold:        #DCB67F;
-      --gold-light:  #EDD9B0;
-      --gold-pale:   #F7EFE0;
-      --terra:       #AF643E;
-      --cream:       #FDFAF5;
-      --offwhite:    #F2EDE4;
-      --charcoal:    #1A1A1A;
-      --ink:         #2A2A2A;
-      --gray:        #777;
-      --gray-light:  #BBBBBB;
+      --green:        #008000;   /* CLUSTER primary green */
+      --green-dark:   #005500;   /* deeper green for depth */
+      --green-mid:    #006600;   /* mid tone */
+      --gold:         #DCB67F;   /* CLUSTER gold/tan */
+      --gold-light:   #EDD9B0;   /* lighter gold */
+      --gold-pale:    #F7EFE0;   /* near-cream with gold tint */
+      --terracotta:   #AF643E;   /* accent terracotta */
+      --terra-light:  #C87D56;   /* lighter terracotta */
+      --cream:        #FDFAF5;   /* off-white background */
+      --charcoal:     #1A1A1A;
+      --gray:         #888;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -34,13 +34,25 @@
 
     body {
       background: var(--cream);
-      color: var(--ink);
+      color: var(--charcoal);
       font-family: 'Karla', sans-serif;
       font-weight: 300;
       overflow-x: hidden;
     }
 
-    /* ══ HERO — green lives here only ══ */
+    /* subtle grain overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ════════════════════════════
+       HERO
+    ════════════════════════════ */
     .hero {
       min-height: 100svh;
       background: var(--green);
@@ -52,61 +64,70 @@
       overflow: hidden;
     }
 
+    /* large circle top-right */
     .hero::before {
       content: '';
       position: absolute;
-      width: 420px; height: 420px;
+      width: 600px; height: 600px;
       border-radius: 50%;
-      border: 1px solid rgba(220,182,127,0.2);
-      top: -140px; right: -120px;
+      background: radial-gradient(circle, var(--green-mid) 0%, transparent 65%);
+      top: -180px; right: -200px;
       pointer-events: none;
     }
 
+    /* terracotta arc bottom-left */
     .hero::after {
       content: '';
       position: absolute;
-      width: 7px; height: 7px;
+      width: 280px; height: 280px;
       border-radius: 50%;
-      background: var(--terra);
-      bottom: 3.5rem; left: 2rem;
-      opacity: 0.7;
+      border: 1px solid var(--terracotta);
+      bottom: -90px; left: -70px;
+      opacity: 0.35;
+      pointer-events: none;
     }
 
+    /* top bar */
     .hero-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      animation: fadeUp 0.8s ease both;
+      position: relative;
+      z-index: 1;
+      animation: fadeUp 0.9s ease both;
     }
 
     .brand {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1rem;
+      font-size: 1.1rem;
       letter-spacing: 0.35em;
       color: var(--gold);
     }
 
-    .series-tag {
-      font-size: 0.6rem;
+    .edition-tag {
+      font-size: 0.65rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--gold-light);
-      opacity: 0.55;
+      opacity: 0.65;
       text-align: right;
-      line-height: 1.8;
+      line-height: 1.7;
     }
 
+    /* center */
     .hero-center {
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: 3rem 0 2rem;
-      animation: fadeUp 0.8s 0.12s ease both;
+      position: relative;
+      z-index: 1;
+      animation: fadeUp 0.9s 0.15s ease both;
     }
 
     .hero-eyebrow {
-      font-size: 0.62rem;
+      font-size: 0.65rem;
       letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--gold);
@@ -127,158 +148,192 @@
       color: var(--gold);
     }
 
-    .hero-line {
-      width: 36px; height: 2px;
-      background: var(--terra);
-      margin: 1.4rem 0;
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 3.5vw, 1.5rem);
+      color: var(--gold-light);
+      opacity: 0.75;
+      margin-top: 0.8rem;
+      margin-bottom: 2rem;
     }
 
     .hero-hook {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.1rem, 3.5vw, 1.5rem);
-      font-style: italic;
-      font-weight: 300;
-      color: var(--gold-light);
-      line-height: 1.6;
-      max-width: 320px;
+      font-size: clamp(0.82rem, 2.5vw, 0.95rem);
+      color: var(--gold-pale);
+      border-left: 2px solid var(--terracotta);
+      padding-left: 1rem;
+      line-height: 1.8;
+      max-width: 360px;
     }
 
+    /* bottom bar */
     .hero-bottom {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      animation: fadeUp 0.8s 0.24s ease both;
+      position: relative;
+      z-index: 1;
+      animation: fadeUp 0.9s 0.3s ease both;
     }
 
-    .hero-date .day {
+    .hero-date-block .day {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3.5rem, 14vw, 6rem);
+      font-size: clamp(3.5rem, 15vw, 6rem);
       color: var(--gold);
       line-height: 1;
     }
 
-    .hero-date .when {
-      font-size: 0.65rem;
-      letter-spacing: 0.25em;
+    .hero-date-block .month-year {
+      font-size: 0.7rem;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--gold-light);
-      opacity: 0.6;
+      opacity: 0.7;
     }
 
     .hero-meta {
       text-align: right;
-      font-size: 0.65rem;
+      font-size: 0.68rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--gold-light);
-      opacity: 0.5;
-      line-height: 2.2;
+      opacity: 0.6;
+      line-height: 2.1;
     }
 
+    /* scroll hint */
     .scroll-hint {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 0.5rem;
-      padding: 1.8rem 0 1.2rem;
+      padding: 2rem 0 1.5rem;
     }
 
     .scroll-hint span {
-      font-size: 0.58rem;
+      font-size: 0.6rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--ink);
-      opacity: 0.3;
+      color: var(--green);
+      opacity: 0.4;
     }
 
     .scroll-line {
-      width: 1px; height: 32px;
-      background: var(--ink);
-      opacity: 0.15;
+      width: 1px;
+      height: 36px;
+      background: var(--green);
+      opacity: 0.25;
       animation: pulse 2s ease-in-out infinite;
     }
 
     @keyframes pulse {
-      0%,100% { opacity: 0.15; transform: scaleY(1); }
-      50%      { opacity: 0.4;  transform: scaleY(0.6); }
+      0%,100% { transform: scaleY(1); opacity: 0.25; }
+      50%      { transform: scaleY(0.5); opacity: 0.6; }
     }
 
-    /* ══ SHARED ══ */
+    /* ════════════════════════════
+       SHARED SECTION STYLES
+    ════════════════════════════ */
     .section {
-      padding: 4.5rem 2rem;
-      max-width: 680px;
+      padding: 5rem 2rem;
+      max-width: 700px;
       margin: 0 auto;
     }
 
-    .label {
-      font-size: 0.58rem;
+    .section-label {
+      font-size: 0.6rem;
       letter-spacing: 0.32em;
       text-transform: uppercase;
       color: var(--green);
+      opacity: 0.55;
       margin-bottom: 1.8rem;
       display: flex;
       align-items: center;
       gap: 1rem;
     }
 
-    .label::after {
+    .section-label::after {
       content: '';
-      flex: 1; height: 1px;
+      flex: 1;
+      height: 1px;
       background: var(--gold-light);
     }
 
+    /* reveal animation */
     .reveal {
       opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-    /* ══ CONCEPT — cream bg ══ */
-    .statement {
+    /* ════════════════════════════
+       CONCEPT SECTION
+    ════════════════════════════ */
+    .concept-statement {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.7rem, 5.5vw, 2.6rem);
       font-weight: 300;
       line-height: 1.3;
-      color: var(--charcoal);
+      color: var(--green);
+      margin-bottom: 2rem;
+    }
+
+    .concept-statement em {
+      font-style: italic;
+      color: var(--terracotta);
+    }
+
+    .concept-body {
+      font-size: 0.92rem;
+      line-height: 1.95;
+      color: #444;
       margin-bottom: 1.4rem;
     }
 
-    .statement em { font-style: italic; color: var(--terra); }
-
-    .body-text {
-      font-size: 0.9rem;
-      line-height: 1.9;
-      color: #555;
-    }
-
+    /* pillars grid */
     .pillars {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--gold-light);
-      border: 1px solid var(--gold-light);
-      margin-top: 3rem;
-      overflow: hidden;
+      gap: 1.2rem;
+      margin-top: 2.8rem;
     }
 
     .pillar {
-      background: var(--cream);
-      padding: 1.6rem 1.4rem;
-      transition: background 0.25s;
+      padding: 1.4rem;
+      border: 1px solid var(--gold-light);
+      border-radius: 2px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
     }
 
-    .pillar:hover { background: var(--offwhite); }
+    .pillar:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
 
-    .pillar:nth-child(1),
-    .pillar:nth-child(2) { border-top: 3px solid var(--green); }
-    .pillar:nth-child(3),
-    .pillar:nth-child(4) { border-top: 3px solid var(--terra); }
+    .pillar::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--green);
+    }
+
+    .pillar:nth-child(3)::before,
+    .pillar:nth-child(4)::before {
+      background: var(--terracotta);
+    }
 
     .pillar-num {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.6rem;
+      font-size: 2rem;
       color: var(--gold-light);
       line-height: 1;
       margin-bottom: 0.4rem;
@@ -288,65 +343,86 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.05rem;
       font-weight: 600;
-      color: var(--charcoal);
-      margin-bottom: 0.25rem;
+      color: var(--green);
+      margin-bottom: 0.3rem;
     }
 
     .pillar-desc {
-      font-size: 0.75rem;
+      font-size: 0.76rem;
       line-height: 1.65;
-      color: var(--gray);
+      color: #666;
     }
 
-    /* ══ DARK BAND — charcoal NOT green ══ */
+    /* ════════════════════════════
+       DARK BAND — "UN ESPACE POUR"
+    ════════════════════════════ */
     .dark-band {
-      background: var(--charcoal);
-      padding: 4rem 2rem;
+      background: var(--green);
+      padding: 5rem 2rem;
     }
 
-    .dark-inner { max-width: 680px; margin: 0 auto; }
+    .dark-band .section-label {
+      color: var(--gold);
+      opacity: 1;
+    }
 
-    .dark-band .label { color: var(--gold); }
-    .dark-band .label::after { background: rgba(220,182,127,0.15); }
+    .dark-band .section-label::after {
+      background: var(--green-mid);
+    }
 
-    .space-list { list-style: none; }
+    .dark-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .space-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+    }
 
     .space-item {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.3rem, 4.5vw, 1.8rem);
+      font-size: clamp(1.5rem, 5vw, 2.1rem);
       font-weight: 300;
       font-style: italic;
       color: var(--cream);
-      padding: 1rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 1.1rem 0;
+      border-bottom: 1px solid rgba(220,182,127,0.12);
       display: flex;
       align-items: center;
       gap: 1rem;
       opacity: 0;
-      transform: translateX(-16px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      transform: translateX(-18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
     }
 
-    .space-item.visible { opacity: 1; transform: translateX(0); }
+    .space-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
 
     .space-item::before {
       content: '✦';
       font-style: normal;
-      font-size: 0.6rem;
+      font-size: 0.65rem;
       color: var(--gold);
       flex-shrink: 0;
     }
 
     .space-note {
-      margin-top: 2rem;
+      margin-top: 2.5rem;
       padding-left: 1rem;
-      border-left: 2px solid var(--terra);
+      border-left: 2px solid var(--terracotta);
       font-size: 0.82rem;
       line-height: 1.85;
       color: var(--gold-light);
+      opacity: 0.7;
     }
 
-    /* ══ DETAILS ══ */
+    /* ════════════════════════════
+       DETAILS GRID
+    ════════════════════════════ */
     .details-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -354,223 +430,264 @@
       background: var(--gold-light);
       border: 1px solid var(--gold-light);
       margin: 2rem 0;
+      border-radius: 2px;
       overflow: hidden;
     }
 
-    .d-cell { background: var(--cream); padding: 1.4rem; }
+    .detail-cell {
+      background: var(--cream);
+      padding: 1.5rem;
+    }
 
-    .d-label {
-      font-size: 0.56rem;
+    .detail-label {
+      font-size: 0.58rem;
       letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--green);
-      margin-bottom: 0.4rem;
+      opacity: 0.55;
+      margin-bottom: 0.5rem;
     }
 
-    .d-value {
+    .detail-value {
       font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-      color: var(--charcoal);
-      line-height: 1.3;
       font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--green);
+      line-height: 1.35;
     }
 
-    .d-value.big { font-size: 1.7rem; }
+    .detail-value.big {
+      font-size: 1.75rem;
+    }
 
-    /* ══ PRICING ══ */
+    /* ════════════════════════════
+       PRICING
+    ════════════════════════════ */
     .pricing-hook {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.2rem, 3.8vw, 1.65rem);
+      font-size: clamp(1.25rem, 4vw, 1.75rem);
       font-style: italic;
-      color: var(--charcoal);
+      color: var(--green);
       line-height: 1.5;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
 
     .pricing-hook small {
       display: block;
       font-style: normal;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--gray);
-      margin-top: 0.35rem;
+      margin-top: 0.4rem;
     }
 
-    .price-cards { display: flex; flex-direction: column; gap: 1.2rem; }
+    .price-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
 
-    .price-card { border-radius: 2px; overflow: hidden; }
+    .price-card {
+      border-radius: 3px;
+      overflow: hidden;
+    }
 
-    .pc-head {
-      padding: 1rem 1.4rem;
+    .price-card-head {
+      padding: 1.1rem 1.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .price-card.women .pc-head { background: var(--green); }
-    .price-card.men   .pc-head { background: var(--charcoal); }
+    .price-card.women .price-card-head { background: var(--green); }
+    .price-card.men   .price-card-head { background: var(--charcoal); }
 
-    .pc-who {
+    .price-who {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.3rem;
-      letter-spacing: 0.08em;
+      font-size: 1.35rem;
+      letter-spacing: 0.1em;
       color: var(--cream);
     }
 
-    .pc-badge {
-      font-size: 0.58rem;
-      letter-spacing: 0.14em;
+    .price-badge {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--gold);
+      opacity: 0.8;
     }
 
-    .price-card.men .pc-badge { color: #999; }
+    .price-card.men .price-badge { color: #777; }
 
-    .pc-body { display: flex; flex-direction: column; }
+    .price-card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
 
-    .price-card.women .pc-body {
+    .price-card.women .price-card-body {
       background: linear-gradient(160deg, var(--green) 0%, var(--green-dark) 100%);
     }
 
-    .price-card.men .pc-body { background: #222; }
+    .price-card.men .price-card-body {
+      background: #1e1e1e;
+    }
 
-    .pc-row {
+    .price-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.1rem 1.4rem;
+      padding: 1.2rem 1.5rem;
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
-    .pc-row:last-child { border-bottom: none; }
+    .price-row:last-child { border-bottom: none; }
 
-    .pc-when {
-      font-size: 0.65rem;
+    .price-when {
+      font-size: 0.68rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--gray-light);
+      color: rgba(255,255,255,0.4);
       line-height: 1.6;
     }
 
-    .pc-when strong {
+    .price-when strong {
       display: block;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-style: italic;
       font-weight: 300;
-      color: rgba(255,255,255,0.65);
+      color: rgba(255,255,255,0.6);
       text-transform: none;
       letter-spacing: 0;
-      margin-top: 0.12rem;
+      margin-top: 0.15rem;
     }
 
-    .pc-amount {
+    .price-amount {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       line-height: 1;
     }
 
-    .price-card.women .pc-amount { color: var(--gold); }
-    .price-card.men   .pc-amount { color: #888; }
-    .pc-amount sup { font-size: 0.9rem; opacity: 0.55; }
+    .price-card.women .price-amount { color: var(--gold); }
+    .price-card.men   .price-amount { color: #666; }
 
-    .quip {
-      margin-top: 0.6rem;
-      padding: 1rem 1.3rem;
-      background: var(--offwhite);
-      border-left: 3px solid var(--terra);
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 0.92rem;
-      color: var(--ink);
-      line-height: 1.6;
+    .price-amount sup {
+      font-size: 1rem;
+      opacity: 0.6;
     }
 
-    /* ══ CTA — gold bg, not green ══ */
+    .men-quip {
+      margin-top: 0.8rem;
+      padding: 1.1rem 1.4rem;
+      background: #f5f3f0;
+      border-left: 3px solid var(--terracotta);
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.65;
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* ════════════════════════════
+       RESERVE CTA BAND
+    ════════════════════════════ */
     .cta-band {
       background: var(--gold);
-      padding: 4.5rem 2rem;
+      padding: 5rem 2rem;
       text-align: center;
     }
 
-    .cta-inner { max-width: 680px; margin: 0 auto; }
+    .cta-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
 
     .cta-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2.2rem, 7vw, 3.8rem);
       font-weight: 300;
-      color: var(--green-dark);
+      color: var(--green);
       line-height: 1.15;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
     }
 
     .cta-sub {
       font-size: 0.85rem;
-      line-height: 1.8;
+      line-height: 1.85;
       color: var(--green-dark);
-      opacity: 0.7;
-      max-width: 380px;
-      margin: 0 auto 2.2rem;
+      opacity: 0.75;
+      max-width: 420px;
+      margin: 0 auto 2.5rem;
     }
 
     .cta-btn {
       display: inline-block;
-      padding: 1.1rem 3rem;
+      padding: 1.1rem 3.2rem;
       background: var(--green);
       color: var(--gold);
       text-decoration: none;
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       letter-spacing: 0.22em;
       border-radius: 2px;
-      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
     }
 
     .cta-btn:hover {
       background: var(--charcoal);
       color: var(--gold);
       transform: translateY(-3px);
-      box-shadow: 0 10px 28px rgba(0,0,0,0.2);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
     }
 
     .cta-note {
-      margin-top: 1.1rem;
-      font-size: 0.65rem;
+      margin-top: 1.2rem;
+      font-size: 0.68rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--green-dark);
+      color: var(--green);
       opacity: 0.5;
     }
 
-    .pills {
+    .payment-pills {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 0.7rem;
-      margin-top: 1.8rem;
+      gap: 0.8rem;
+      margin-top: 2rem;
     }
 
     .pill {
-      padding: 0.35rem 1rem;
-      border: 1px solid rgba(0,80,0,0.3);
+      padding: 0.4rem 1.1rem;
+      border: 1px solid var(--green);
       border-radius: 999px;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
+      font-size: 0.67rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--green-dark);
+      color: var(--green);
       opacity: 0.6;
     }
 
-    /* ══ FAQ ══ */
-    .faq-list { display: flex; flex-direction: column; }
+    /* ════════════════════════════
+       FAQ
+    ════════════════════════════ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+    }
 
-    .faq-item { border-bottom: 1px solid var(--gold-light); overflow: hidden; }
+    .faq-item {
+      border-bottom: 1px solid var(--gold-light);
+      overflow: hidden;
+    }
 
     .faq-q {
-      padding: 1.1rem 0;
+      padding: 1.2rem 0;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 600;
-      color: var(--charcoal);
+      color: var(--green);
       cursor: pointer;
       display: flex;
       justify-content: space-between;
@@ -580,10 +697,10 @@
       transition: color 0.2s;
     }
 
-    .faq-q:hover { color: var(--terra); }
+    .faq-q:hover { color: var(--terracotta); }
 
     .faq-icon {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       color: var(--gold);
       flex-shrink: 0;
       transition: transform 0.3s ease;
@@ -592,28 +709,35 @@
 
     .faq-item.open .faq-icon { transform: rotate(45deg); }
 
-    .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-    .faq-item.open .faq-body { max-height: 200px; }
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .faq-item.open .faq-body { max-height: 220px; }
 
     .faq-body-inner {
-      padding-bottom: 1.2rem;
-      font-size: 0.85rem;
+      padding-bottom: 1.3rem;
+      font-size: 0.87rem;
       line-height: 1.85;
       color: #555;
     }
 
-    .faq-body-inner strong { color: var(--terra); font-weight: 500; }
+    .faq-body-inner strong { color: var(--terracotta); font-weight: 500; }
 
-    /* ══ FOOTER ══ */
+    /* ════════════════════════════
+       FOOTER
+    ════════════════════════════ */
     footer {
       background: var(--green);
-      padding: 3rem 2rem;
+      padding: 3.5rem 2rem;
       text-align: center;
     }
 
     .footer-brand {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem;
+      font-size: 2.2rem;
       letter-spacing: 0.4em;
       color: var(--gold);
       margin-bottom: 0.4rem;
@@ -622,9 +746,9 @@
     .footer-tagline {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       color: var(--gold-light);
-      opacity: 0.6;
+      opacity: 0.55;
       margin-bottom: 1.8rem;
     }
 
@@ -633,15 +757,15 @@
       justify-content: center;
       gap: 2rem;
       flex-wrap: wrap;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     .footer-links a {
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--gold-light);
-      opacity: 0.5;
+      opacity: 0.45;
       text-decoration: none;
       transition: opacity 0.2s;
     }
@@ -650,333 +774,64 @@
 
     .footer-back {
       display: inline-block;
-      font-size: 0.6rem;
+      font-size: 0.62rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--gold);
       opacity: 0.4;
       text-decoration: none;
-      border-bottom: 1px solid rgba(220,182,127,0.25);
+      border-bottom: 1px solid rgba(220,182,127,0.3);
       padding-bottom: 2px;
       transition: opacity 0.2s;
     }
 
-    .footer-back:hover { opacity: 0.9; }
+    .footer-back:hover { opacity: 0.8; }
 
     .footer-copy {
       margin-top: 2rem;
-      font-size: 0.56rem;
-      letter-spacing: 0.14em;
+      font-size: 0.58rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--gold-light);
       opacity: 0.25;
     }
 
+    /* ════════════════════════════
+       ANIMATIONS
+    ════════════════════════════ */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
+      from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* ════════════════════════════
+       RESPONSIVE
+    ════════════════════════════ */
     @media (max-width: 480px) {
-      .pillars      { grid-template-columns: 1fr; }
-      .details-grid { grid-template-columns: 1fr; }
+      .pillars       { grid-template-columns: 1fr; }
+      .details-grid  { grid-template-columns: 1fr; }
+      .payment-pills { flex-direction: column; align-items: center; }
     }
 
     @media (min-width: 768px) {
-      .section   { padding: 6rem 2rem; }
-      .dark-band { padding: 6rem 2rem; }
-      .cta-band  { padding: 6rem 2rem; }
+      .section   { padding: 7rem 2rem; }
+      .dark-band { padding: 7rem 2rem; }
+      .cta-band  { padding: 7rem 2rem; }
       .hero      { padding: 3.5rem 5rem 4.5rem; }
     }
   </style>
 </head>
 <body>
 
+<!-- ════════════════════════════════════
+     HERO
+════════════════════════════════════ -->
 <header class="hero">
+
   <div class="hero-top">
     <div class="brand">CLUSTER</div>
-    <div class="series-tag">Dîner I<br>Série 2026</div>
+    <div class="edition-tag">Édition<br>Femmes · 2026</div>
   </div>
 
   <div class="hero-center">
-    <p class="hero-eyebrow">Dîner Exclusivement Féminin · Mois de la Femme</p>
-    <h1 class="hero-title">
-      Ngonal<br>
-      <em>Le Khawaré</em>
-    </h1>
-    <div class="hero-line"></div>
-    <p class="hero-hook">
-      Ce soir-là, personne ne servira en dernier.<br>
-      Personne ne performera.<br>
-      Vous serez nourries.
-    </p>
-  </div>
-
-  <div class="hero-bottom">
-    <div class="hero-date">
-      <div class="day">28</div>
-      <div class="when">Mars · 2026</div>
-    </div>
-    <div class="hero-meta">
-      À partir de 17h<br>
-      Mermoz, Dakar<br>
-      50 places
-    </div>
-  </div>
-</header>
-
-<div class="scroll-hint">
-  <span>Lire</span>
-  <div class="scroll-line"></div>
-</div>
-
-
-<section class="section">
-  <p class="label">Le Concept</p>
-
-  <p class="statement reveal">
-    Ce n'est pas un dîner.<br>
-    C'est une <em>permission.</em>
-  </p>
-
-  <p class="body-text reveal">
-    Chaque mars, on dit que vous comptez. Puis vous rentrez à la maison
-    et vous servez le dîner en dernier. CLUSTER fait autre chose —
-    on met la table. Pour vous. Seulement.
-  </p>
-
-  <div class="pillars">
-    <div class="pillar reveal">
-      <div class="pillar-num">01</div>
-      <div class="pillar-title">Nourissement</div>
-      <div class="pillar-desc">Nourrir celles qui nourrissent tout le monde en dernier.</div>
-    </div>
-    <div class="pillar reveal">
-      <div class="pillar-num">02</div>
-      <div class="pillar-title">Désir</div>
-      <div class="pillar-desc">Revendiquer l'appétit. Sans s'excuser.</div>
-    </div>
-    <div class="pillar reveal">
-      <div class="pillar-num">03</div>
-      <div class="pillar-title">Transmission</div>
-      <div class="pillar-desc">Mémoires héritées. Réinterprétées, non figées.</div>
-    </div>
-    <div class="pillar reveal">
-      <div class="pillar-num">04</div>
-      <div class="pillar-title">Silence & Espace</div>
-      <div class="pillar-desc">Un environnement protégé. Les voix qui s'élèvent librement.</div>
-    </div>
-  </div>
-</section>
-
-
-<div class="dark-band">
-  <div class="dark-inner">
-    <p class="label">Ce soir-là</p>
-    <ul class="space-list">
-      <li class="space-item">Manger sans retenue</li>
-      <li class="space-item">Parler sans interruption</li>
-      <li class="space-item">S'asseoir sans performance</li>
-      <li class="space-item">Laisser le voile tomber si on le désire</li>
-    </ul>
-    <p class="space-note">
-      Aucun homme ne sera présent ce soir-là.<br>
-      Pas même le chef. Par conception. Par respect.
-    </p>
-  </div>
-</div>
-
-
-<section class="section" style="padding-bottom:2rem;">
-  <p class="label">Les Détails</p>
-  <div class="details-grid reveal">
-    <div class="d-cell">
-      <div class="d-label">Date</div>
-      <div class="d-value big">Samedi<br>28 Mars</div>
-    </div>
-    <div class="d-cell">
-      <div class="d-label">Heure</div>
-      <div class="d-value big">À partir<br>de 17h</div>
-    </div>
-    <div class="d-cell">
-      <div class="d-label">Lieu</div>
-      <div class="d-value">Mermoz<br>Dakar, Sénégal</div>
-    </div>
-    <div class="d-cell">
-      <div class="d-label">Places</div>
-      <div class="d-value">50 places<br>limitées</div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section" style="padding-top:2rem;">
-  <p class="label">Tarifs</p>
-
-  <p class="pricing-hook reveal">
-    Ce dîner n'est pas pour tout le monde.<br>
-    Spécifiquement : pas pour les hommes.
-    <small>Sauf si vous voulez vraiment payer 50.000 fr. 😌</small>
-  </p>
-
-  <div class="price-cards">
-    <div class="price-card women reveal">
-      <div class="pc-head">
-        <div class="pc-who">Femmes</div>
-        <div class="pc-badge">Bienvenues</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-row">
-          <div class="pc-when">Prévente<strong>Avant le 20 Mars 2026</strong></div>
-          <div class="pc-amount">15.000<sup> fr</sup></div>
-        </div>
-        <div class="pc-row">
-          <div class="pc-when">Tarif standard<strong>Après le 20 Mars 2026</strong></div>
-          <div class="pc-amount">20.000<sup> fr</sup></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="price-card men reveal">
-      <div class="pc-head">
-        <div class="pc-who">Hommes</div>
-        <div class="pc-badge">Techniquement possibles</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-row">
-          <div class="pc-when">Prévente<strong>Avant le 20 Mars 2026</strong></div>
-          <div class="pc-amount">50.000<sup> fr</sup></div>
-        </div>
-        <div class="pc-row">
-          <div class="pc-when">Tarif standard<strong>Après le 20 Mars 2026</strong></div>
-          <div class="pc-amount">100.000<sup> fr</sup></div>
-        </div>
-      </div>
-    </div>
-
-    <p class="quip reveal">
-      Nous ne discriminons pas.<br>
-      Nous prixons selon l'urgence du besoin. 😌
-    </p>
-  </div>
-</section>
-
-
-<div class="cta-band">
-  <div class="cta-inner">
-    <h2 class="cta-title">Votre siège<br>vous attend.</h2>
-    <p class="cta-sub">
-      Paiement confirme la place. 50 seats. Aucun restockage.
-      Deux femmes ont réservé avant même que ce menu soit publié.
-    </p>
-    <a
-      href="https://wa.me/221764819205?text=Bonjour%20CLUSTER%20!%20Je%20souhaite%20réserver%20ma%20place%20pour%20le%20dîner%20du%2028%20mars%202026.%20Mon%20nom%20%3A%20"
-      class="cta-btn"
-      target="_blank"
-      rel="noopener"
-    >
-      RÉSERVER MA PLACE
-    </a>
-    <p class="cta-note">Via WhatsApp · Wave ou Orange Money</p>
-    <div class="pills">
-      <div class="pill">Wave</div>
-      <div class="pill">Orange Money</div>
-      <div class="pill">+221 76 481 9205</div>
-    </div>
-  </div>
-</div>
-
-
-<section class="section">
-  <p class="label">Questions</p>
-  <div class="faq-list">
-
-    <div class="faq-item">
-      <div class="faq-q">C'est vraiment réservé aux femmes ?<span class="faq-icon">+</span></div>
-      <div class="faq-body"><div class="faq-body-inner">
-        Oui. Entièrement. Ce n'est pas un "ladies night".
-        <strong>Aucun homme ne sera présent — pas même en cuisine.</strong>
-        Un espace protégé pour manger, parler et exister sans performer.
-      </div></div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Qu'est-ce qui est inclus ?<span class="faq-icon">+</span></div>
-      <div class="faq-body"><div class="faq-body-inner">
-        L'expérience complète — boisson d'accueil, amuse-bouches, plats, desserts.
-        Menu CLUSTER : surf seulement, saveurs africaines, aucun compromis.
-        <strong>Menu complet à venir.</strong>
-      </div></div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Comment réserver ?<span class="faq-icon">+</span></div>
-      <div class="faq-body"><div class="faq-body-inner">
-        Cliquez "Réserver ma place" — WhatsApp s'ouvre avec un message pré-rempli.
-        Payez via Wave ou Orange Money au <strong>+221 76 481 9205.</strong>
-        Paiement reçu = place confirmée.
-      </div></div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Peut-on venir en groupe ?<span class="faq-icon">+</span></div>
-      <div class="faq-body"><div class="faq-body-inner">
-        Oui. Envoyez les noms via WhatsApp.
-        <strong>Tables réservables pour groupes de 5+.</strong>
-        Idéal pour équipes, associations, cercles d'amies.
-      </div></div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-q">Y aura-t-il d'autres éditions ?<span class="faq-icon">+</span></div>
-      <div class="faq-body"><div class="faq-body-inner">
-        Les dîners CLUSTER sont intentionnellement limités et espacés. Chaque édition est différente.
-        <strong>La meilleure façon de ne pas manquer la prochaine ? Être à celle-ci.</strong>
-      </div></div>
-    </div>
-
-  </div>
-</section>
-
-
-<footer>
-  <div class="footer-brand">CLUSTER</div>
-  <div class="footer-tagline">Pâtisserie Africainement · Pâtisserie Différemment</div>
-  <div class="footer-links">
-    <a href="https://instagram.com/EatCluster" target="_blank" rel="noopener">Instagram</a>
-    <a href="https://tiktok.com/@EatCluster" target="_blank" rel="noopener">TikTok</a>
-    <a href="https://wa.me/221764819205" target="_blank" rel="noopener">WhatsApp</a>
-  </div>
-  <a href="https://bySouley.github.io/cluster-events/" class="footer-back">← Tous les événements CLUSTER</a>
-  <div class="footer-copy">© 2026 CLUSTER · Patte D'Oie Builders, Dakar, Sénégal</div>
-</footer>
-
-
-<script>
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      if (entry.target.classList.contains('space-item')) {
-        const i = [...entry.target.parentNode.children].indexOf(entry.target);
-        setTimeout(() => entry.target.classList.add('visible'), i * 100);
-      } else {
-        entry.target.classList.add('visible');
-      }
-      obs.unobserve(entry.target);
-    });
-  }, { threshold: 0.12 });
-
-  document.querySelectorAll('.reveal, .space-item').forEach(el => obs.observe(el));
-
-  document.querySelectorAll('.faq-q').forEach(q => {
-    q.addEventListener('click', () => {
-      const item = q.parentElement;
-      const open = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!open) item.classList.add('open');
-    });
-  });
-</script>
-
-</body>
-</html>
+    <p class="
