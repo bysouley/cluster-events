@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLUSTER — NGONAL · Brothers Only · 5 Avril 2026</title>
+  <meta name="description" content="Un dîner pour frères. 50 places. Mermoz, Dakar. 5 Avril 2026." />
+  <meta property="og:title" content="NGONAL — Brothers Only · CLUSTER" />
+  <meta property="og:description" content="Même table. Autre conversation. Long overdue." />
+  <meta property="og:url" content="https://bySouley.github.io/cluster-events/april-2026/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Karla:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green:       #008000;
+      --green-dark:  #005500;
+      --gold:        #DCB67F;
+      --gold-light:  #EDD9B0;
+      --terra:       #AF643E;
+      --cream:       #FDFAF5;
+      --offwhite:    #F2EDE4;
+      --charcoal:    #1A1A1A;
+      --ink:         #2A2A2A;
+      --gray:        #777;
+      --gray-light:  #BBBBBB;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Karla', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ════════════════════════
+       HERO — dark, structured
+    ════════════════════════ */
+    .hero {
+      min-height: 100svh;
+      background: var(--charcoal);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2.5rem 2rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* single green arc — accent only */
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      border: 1px solid var(--green);
+      top: -140px; right: -130px;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    /* terracotta dot bottom */
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--terra);
+      bottom: 3.5rem; left: 2rem;
+      opacity: 0.7;
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+    }
+
+    .series-tag {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      opacity: 0.5;
+      text-align: right;
+      line-height: 1.8;
+    }
+
+    .hero-center {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem 0 2rem;
+      animation: fadeUp 0.8s 0.12s ease both;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 20vw, 9rem);
+      line-height: 0.88;
+      color: var(--cream);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title span {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 3.5vw, 1.5rem);
+      font-weight: 300;
+      font-style: italic;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+      margin-top: 0.5rem;
+    }
+
+    .hero-line {
+      width: 40px;
+      height: 2px;
+      background: var(--terra);
+      margin: 1.5rem 0;
+    }
+
+    .hero-hook {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gray-light);
+      line-height: 1.5;
+      max-width: 340px;
+    }
+
+    .hero-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      animation: fadeUp 0.8s 0.24s ease both;
+    }
+
+    .hero-date .day {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 14vw, 6rem);
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .hero-date .when {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      opacity: 0.55;
+    }
+
+    .hero-meta {
+      text-align: right;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      opacity: 0.5;
+      line-height: 2.2;
+    }
+
+    /* scroll indicator */
+    .scroll-hint {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1.8rem 0 1.2rem;
+    }
+
+    .scroll-hint span {
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink);
+      opacity: 0.3;
+    }
+
+    .scroll-line {
+      width: 1px; height: 32px;
+      background: var(--ink);
+      opacity: 0.15;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity: 0.15; transform: scaleY(1); }
+      50%      { opacity: 0.4;  transform: scaleY(0.6); }
+    }
+
+    /* ════════════════════════
+       SHARED
+    ════════════════════════ */
+    .section {
+      padding: 4.5rem 2rem;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .label {
+      font-size: 0.58rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .label::after {
+      content: '';
+      flex: 1; height: 1px;
+      background: var(--gold-light);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ════════════════════════
+       STATEMENT SECTION
+    ════════════════════════ */
+    .statement {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      font-weight: 300;
+      line-height: 1.35;
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+    }
+
+    .statement em {
+      font-style: italic;
+      color: var(--terra);
+    }
+
+    .body-text {
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: #555;
+    }
+
+    /* ════════════════════════
+       PILLARS — horizontal on desktop
+    ════════════════════════ */
+    .pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--gold-light);
+      border: 1px solid var(--gold-light);
+      margin-top: 3rem;
+      overflow: hidden;
+    }
+
+    .pillar {
+      background: var(--cream);
+      padding: 1.6rem 1.4rem;
+      transition: background 0.25s;
+    }
+
+    .pillar:hover { background: var(--offwhite); }
+
+    .pillar-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .pillar-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.3rem;
+    }
+
+    .pillar-desc {
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--gray);
+    }
+
+    /* green left bar alternates */
+    .pillar:nth-child(1),
+    .pillar:nth-child(2) { border-top: 3px solid var(--green); }
+    .pillar:nth-child(3),
+    .pillar:nth-child(4) { border-top: 3px solid var(--terra); }
+
+    /* ════════════════════════
+       FORMAT STRIP — dark band
+       but LOW contrast problem solved:
+       cream text on charcoal = AAA
+    ════════════════════════ */
+    .format-band {
+      background: var(--charcoal);
+      padding: 4rem 2rem;
+    }
+
+    .format-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .format-band .label {
+      color: var(--gold);
+    }
+
+    .format-band .label::after {
+      background: rgba(220,182,127,0.2);
+    }
+
+    .format-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .format-item {
+      /* cream on charcoal = contrast ratio ~14:1 ✅ */
+      color: var(--cream);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 4.5vw, 1.8rem);
+      font-weight: 300;
+      font-style: italic;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      opacity: 0;
+      transform: translateX(-16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .format-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .format-item::before {
+      content: '—';
+      font-style: normal;
+      font-size: 0.8rem;
+      color: var(--terra);
+      flex-shrink: 0;
+    }
+
+    .format-note {
+      margin-top: 2rem;
+      font-size: 0.82rem;
+      line-height: 1.85;
+      /* gold-light on charcoal = contrast ratio ~7:1 ✅ */
+      color: var(--gold-light);
+      border-left: 2px solid var(--terra);
+      padding-left: 1rem;
+    }
+
+    /* ════════════════════════
+       DETAILS GRID
+    ════════════════════════ */
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--gold-light);
+      border: 1px solid var(--gold-light);
+      margin: 2rem 0;
+      overflow: hidden;
+    }
+
+    .d-cell {
+      background: var(--cream);
+      padding: 1.4rem;
+    }
+
+    .d-label {
+      font-size: 0.56rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      /* green on cream = contrast ratio ~5:1 ✅ (large text context) */
+      color: var(--green);
+      margin-bottom: 0.45rem;
+    }
+
+    .d-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      /* charcoal on cream = contrast ratio ~16:1 ✅ */
+      color: var(--charcoal);
+      line-height: 1.3;
+      font-size: 1.25rem;
+    }
+
+    .d-value.big { font-size: 1.7rem; }
+
+    /* ════════════════════════
+       PRICING
+    ════════════════════════ */
+    .pricing-hook {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.2rem, 3.8vw, 1.65rem);
+      font-style: italic;
+      color: var(--charcoal);
+      line-height: 1.5;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-hook small {
+      display: block;
+      font-style: normal;
+      font-size: 0.8rem;
+      color: var(--gray);
+      margin-top: 0.35rem;
+    }
+
+    .price-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .price-card { border-radius: 2px; overflow: hidden; }
+
+    .pc-head {
+      padding: 1rem 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Men — charcoal head */
+    .price-card.men .pc-head { background: var(--charcoal); }
+
+    /* Women — terracotta head */
+    .price-card.women .pc-head { background: var(--terra); }
+
+    .pc-who {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.08em;
+      /* cream on charcoal ✅ / cream on terra ✅ */
+      color: var(--cream);
+    }
+
+    .pc-badge {
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .price-card.women .pc-badge { color: var(--cream); opacity: 0.75; }
+
+    .pc-body { display: flex; flex-direction: column; }
+
+    .price-card.men .pc-body   { background: #222; }
+    .price-card.women .pc-body { background: #8B4E30; }
+
+    .pc-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 1.4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .pc-row:last-child { border-bottom: none; }
+
+    .pc-when {
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      /* gray-light on dark bg = ~6:1 ✅ */
+      color: var(--gray-light);
+      line-height: 1.6;
+    }
+
+    .pc-when strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.88rem;
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      text-transform: none;
+      letter-spacing: 0;
+      margin-top: 0.12rem;
+    }
+
+    .pc-amount {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+
+    .price-card.men   .pc-amount { color: var(--gold); }
+    .price-card.women .pc-amount { color: var(--cream); }
+
+    .pc-amount sup {
+      font-size: 0.9rem;
+      opacity: 0.55;
+    }
+
+    .quip {
+      margin-top: 0.6rem;
+      padding: 1rem 1.3rem;
+      background: var(--offwhite);
+      border-left: 3px solid var(--terra);
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.92rem;
+      /* ink on offwhite = ~14:1 ✅ */
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    /* ════════════════════════
+       CTA BAND
+    ════════════════════════ */
+    .cta-band {
+      background: var(--green);
+      padding: 4.5rem 2rem;
+      text-align: center;
+    }
+
+    .cta-inner { max-width: 680px; margin: 0 auto; }
+
+    .cta-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 9vw, 4.5rem);
+      letter-spacing: 0.05em;
+      /* cream on green = ~8:1 ✅ */
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .cta-sub {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: var(--gold-light);
+      opacity: 0.8;
+      max-width: 380px;
+      margin: 0 auto 2.2rem;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 1.1rem 3rem;
+      background: var(--gold);
+      /* charcoal on gold = ~10:1 ✅ */
+      color: var(--charcoal);
+      text-decoration: none;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.22em;
+      border-radius: 2px;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+    }
+
+    .cta-btn:hover {
+      background: var(--cream);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+    }
+
+    .cta-note {
+      margin-top: 1.1rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      opacity: 0.5;
+    }
+
+    .pills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 1.8rem;
+    }
+
+    .pill {
+      padding: 0.35rem 1rem;
+      border: 1px solid rgba(220,182,127,0.4);
+      border-radius: 999px;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      opacity: 0.65;
+    }
+
+    /* ════════════════════════
+       FAQ
+    ════════════════════════ */
+    .faq-list { display: flex; flex-direction: column; }
+
+    .faq-item {
+      border-bottom: 1px solid var(--gold-light);
+      overflow: hidden;
+    }
+
+    .faq-q {
+      padding: 1.1rem 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      /* charcoal on cream ✅ */
+      color: var(--charcoal);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      user-select: none;
+      transition: color 0.2s;
+    }
+
+    .faq-q:hover { color: var(--terra); }
+
+    .faq-icon {
+      font-size: 1.3rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+      line-height: 1;
+    }
+
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .faq-item.open .faq-body { max-height: 200px; }
+
+    .faq-body-inner {
+      padding-bottom: 1.2rem;
+      font-size: 0.85rem;
+      line-height: 1.85;
+      /* #555 on cream = ~7:1 ✅ */
+      color: #555;
+    }
+
+    .faq-body-inner strong { color: var(--terra); font-weight: 500; }
+
+    /* ════════════════════════
+       FOOTER
+    ════════════════════════ */
+    footer {
+      background: var(--charcoal);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .footer-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--gray-light);
+      opacity: 0.45;
+      margin-bottom: 1.8rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links a {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      opacity: 0.4;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .footer-links a:hover { opacity: 0.9; }
+
+    .footer-back {
+      display: inline-block;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.35;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(220,182,127,0.25);
+      padding-bottom: 2px;
+      transition: opacity 0.2s;
+    }
+
+    .footer-back:hover { opacity: 0.8; }
+
+    .footer-copy {
+      margin-top: 2rem;
+      font-size: 0.56rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      opacity: 0.2;
+    }
+
+    /* ════════════════════════
+       ANIMATIONS
+    ════════════════════════ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ════════════════════════
+       RESPONSIVE
+    ════════════════════════ */
+    @media (max-width: 480px) {
+      .pillars       { grid-template-columns: 1fr; }
+      .details-grid  { grid-template-columns: 1fr; }
+    }
+
+    @media (min-width: 768px) {
+      .section      { padding: 6rem 2rem; }
+      .format-band  { padding: 6rem 2rem; }
+      .cta-band     { padding: 6rem 2rem; }
+      .hero         { padding: 3.5rem 5rem 4.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════
+     HERO
+════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-top">
+    <div class="brand">CLUSTER</div>
+    <div class="series-tag">Dîner II<br>Série 2026</div>
+  </div>
+
+  <div class="hero-center">
+    <p class="hero-eyebrow">Dîner Exclusivement Masculin · Brothers Only</p>
+
+    <h1 class="hero-title">
+      NGONAL
+      <span>La table des frères.</span>
+    </h1>
+
+    <div class="hero-line"></div>
+
+    <p class="hero-hook">
+      Même adresse.<br>
+      Autre conversation.<br>
+      Long overdue.
+    </p>
+  </div>
+
+  <div class="hero-bottom">
+    <div class="hero-date">
+      <div class="day">05</div>
+      <div class="when">Avril · 2026</div>
+    </div>
+    <div class="hero-meta">
+      À partir de 17h<br>
+      Mermoz, Dakar<br>
+      50 frères
+    </div>
+  </div>
+</header>
+
+<div class="scroll-hint">
+  <span>Lire</span>
+  <div class="scroll-line"></div>
+</div>
+
+
+<!-- ════════════════════════════════
+     CONCEPT
+════════════════════════════════ -->
+<section class="section">
+  <p class="label">Pourquoi</p>
+
+  <p class="statement reveal">
+    Le 28 mars, les femmes se sont assises.<br>
+    Le 5 avril, <em>c'est notre tour.</em>
+  </p>
+
+  <p class="body-text reveal">
+    Pas un séminaire. Pas une conférence. Pas un sermon.
+    Un dîn
