@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CLUSTER — NGONAL · Brothers Only · 5 Avril 2026</title>
-  <meta name="description" content="Un dîner pour frères. 50 places. Mermoz, Dakar. 4 Avril 2026." />
+  <meta name="description" content="Un dîner pour frères. 50 places. Mermoz, Dakar. 5 Avril 2026." />
   <meta property="og:title" content="NGONAL — Brothers Only · CLUSTER" />
   <meta property="og:description" content="Même table. Autre conversation. Long overdue." />
   <meta property="og:url" content="https://bySouley.github.io/cluster-events/april-2026/" />
@@ -39,9 +39,7 @@
       overflow-x: hidden;
     }
 
-    /* ════════════════════════
-       HERO — dark, structured
-    ════════════════════════ */
+    /* ══ HERO — darker, structured ══ */
     .hero {
       min-height: 100svh;
       background: var(--charcoal);
@@ -53,8 +51,21 @@
       overflow: hidden;
     }
 
-    /* single green arc — accent only */
+    /* OPTIONAL: Uncomment when you add a hero background image */
+    /*
     .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('../images/men-hero.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.12;
+      z-index: 0;
+    }
+    */
+
+    .hero::after {
       content: '';
       position: absolute;
       width: 420px; height: 420px;
@@ -63,23 +74,15 @@
       top: -140px; right: -130px;
       opacity: 0.25;
       pointer-events: none;
-    }
-
-    /* terracotta dot bottom */
-    .hero::after {
-      content: '';
-      position: absolute;
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--terra);
-      bottom: 3.5rem; left: 2rem;
-      opacity: 0.7;
+      z-index: 0;
     }
 
     .hero-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
+      position: relative;
+      z-index: 2;
       animation: fadeUp 0.8s ease both;
     }
 
@@ -106,6 +109,8 @@
       flex-direction: column;
       justify-content: center;
       padding: 3rem 0 2rem;
+      position: relative;
+      z-index: 2;
       animation: fadeUp 0.8s 0.12s ease both;
     }
 
@@ -138,8 +143,7 @@
     }
 
     .hero-line {
-      width: 40px;
-      height: 2px;
+      width: 40px; height: 2px;
       background: var(--terra);
       margin: 1.5rem 0;
     }
@@ -158,6 +162,8 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
+      position: relative;
+      z-index: 2;
       animation: fadeUp 0.8s 0.24s ease both;
     }
 
@@ -186,7 +192,6 @@
       line-height: 2.2;
     }
 
-    /* scroll indicator */
     .scroll-hint {
       display: flex;
       flex-direction: column;
@@ -215,9 +220,33 @@
       50%      { opacity: 0.4;  transform: scaleY(0.6); }
     }
 
-    /* ════════════════════════
-       SHARED
-    ════════════════════════ */
+    /* ══ IMAGE BANNER ══ */
+    .img-banner {
+      width: 100%;
+      height: 400px;
+      background: var(--offwhite);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .img-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .img-banner.placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ══ SHARED ══ */
     .section {
       padding: 4.5rem 2rem;
       max-width: 680px;
@@ -247,14 +276,8 @@
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ════════════════════════
-       STATEMENT SECTION
-    ════════════════════════ */
     .statement {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.6rem, 5vw, 2.4rem);
@@ -264,10 +287,7 @@
       margin-bottom: 1.5rem;
     }
 
-    .statement em {
-      font-style: italic;
-      color: var(--terra);
-    }
+    .statement em { font-style: italic; color: var(--terra); }
 
     .body-text {
       font-size: 0.9rem;
@@ -275,9 +295,6 @@
       color: #555;
     }
 
-    /* ════════════════════════
-       PILLARS — horizontal on desktop
-    ════════════════════════ */
     .pillars {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -296,20 +313,25 @@
 
     .pillar:hover { background: var(--offwhite); }
 
+    .pillar:nth-child(1),
+    .pillar:nth-child(2) { border-top: 3px solid var(--green); }
+    .pillar:nth-child(3),
+    .pillar:nth-child(4) { border-top: 3px solid var(--terra); }
+
     .pillar-num {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.6rem;
       color: var(--gold-light);
       line-height: 1;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
 
     .pillar-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 600;
       color: var(--charcoal);
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.25rem;
     }
 
     .pillar-desc {
@@ -318,44 +340,19 @@
       color: var(--gray);
     }
 
-    /* green left bar alternates */
-    .pillar:nth-child(1),
-    .pillar:nth-child(2) { border-top: 3px solid var(--green); }
-    .pillar:nth-child(3),
-    .pillar:nth-child(4) { border-top: 3px solid var(--terra); }
-
-    /* ════════════════════════
-       FORMAT STRIP — dark band
-       but LOW contrast problem solved:
-       cream text on charcoal = AAA
-    ════════════════════════ */
     .format-band {
       background: var(--charcoal);
       padding: 4rem 2rem;
     }
 
-    .format-inner {
-      max-width: 680px;
-      margin: 0 auto;
-    }
+    .format-inner { max-width: 680px; margin: 0 auto; }
 
-    .format-band .label {
-      color: var(--gold);
-    }
+    .format-band .label { color: var(--gold); }
+    .format-band .label::after { background: rgba(220,182,127,0.2); }
 
-    .format-band .label::after {
-      background: rgba(220,182,127,0.2);
-    }
-
-    .format-items {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
+    .format-items { list-style: none; display: flex; flex-direction: column; gap: 0; }
 
     .format-item {
-      /* cream on charcoal = contrast ratio ~14:1 ✅ */
       color: var(--cream);
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.3rem, 4.5vw, 1.8rem);
@@ -371,10 +368,7 @@
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
-    .format-item.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
+    .format-item.visible { opacity: 1; transform: translateX(0); }
 
     .format-item::before {
       content: '—';
@@ -388,15 +382,11 @@
       margin-top: 2rem;
       font-size: 0.82rem;
       line-height: 1.85;
-      /* gold-light on charcoal = contrast ratio ~7:1 ✅ */
       color: var(--gold-light);
       border-left: 2px solid var(--terra);
       padding-left: 1rem;
     }
 
-    /* ════════════════════════
-       DETAILS GRID
-    ════════════════════════ */
     .details-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -407,16 +397,12 @@
       overflow: hidden;
     }
 
-    .d-cell {
-      background: var(--cream);
-      padding: 1.4rem;
-    }
+    .d-cell { background: var(--cream); padding: 1.4rem; }
 
     .d-label {
       font-size: 0.56rem;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      /* green on cream = contrast ratio ~5:1 ✅ (large text context) */
       color: var(--green);
       margin-bottom: 0.45rem;
     }
@@ -424,7 +410,6 @@
     .d-value {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 600;
-      /* charcoal on cream = contrast ratio ~16:1 ✅ */
       color: var(--charcoal);
       line-height: 1.3;
       font-size: 1.25rem;
@@ -432,9 +417,6 @@
 
     .d-value.big { font-size: 1.7rem; }
 
-    /* ════════════════════════
-       PRICING
-    ════════════════════════ */
     .pricing-hook {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.2rem, 3.8vw, 1.65rem);
@@ -452,11 +434,7 @@
       margin-top: 0.35rem;
     }
 
-    .price-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
+    .price-cards { display: flex; flex-direction: column; gap: 1.2rem; }
 
     .price-card { border-radius: 2px; overflow: hidden; }
 
@@ -467,17 +445,13 @@
       align-items: center;
     }
 
-    /* Men — charcoal head */
     .price-card.men .pc-head { background: var(--charcoal); }
-
-    /* Women — terracotta head */
     .price-card.women .pc-head { background: var(--terra); }
 
     .pc-who {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.3rem;
       letter-spacing: 0.08em;
-      /* cream on charcoal ✅ / cream on terra ✅ */
       color: var(--cream);
     }
 
@@ -492,7 +466,7 @@
 
     .pc-body { display: flex; flex-direction: column; }
 
-    .price-card.men .pc-body   { background: #222; }
+    .price-card.men .pc-body { background: #222; }
     .price-card.women .pc-body { background: #8B4E30; }
 
     .pc-row {
@@ -509,7 +483,6 @@
       font-size: 0.65rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      /* gray-light on dark bg = ~6:1 ✅ */
       color: var(--gray-light);
       line-height: 1.6;
     }
@@ -535,10 +508,7 @@
     .price-card.men   .pc-amount { color: var(--gold); }
     .price-card.women .pc-amount { color: var(--cream); }
 
-    .pc-amount sup {
-      font-size: 0.9rem;
-      opacity: 0.55;
-    }
+    .pc-amount sup { font-size: 0.9rem; opacity: 0.55; }
 
     .quip {
       margin-top: 0.6rem;
@@ -548,14 +518,10 @@
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-size: 0.92rem;
-      /* ink on offwhite = ~14:1 ✅ */
       color: var(--ink);
       line-height: 1.6;
     }
 
-    /* ════════════════════════
-       CTA BAND
-    ════════════════════════ */
     .cta-band {
       background: var(--green);
       padding: 4.5rem 2rem;
@@ -568,7 +534,6 @@
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(2.5rem, 9vw, 4.5rem);
       letter-spacing: 0.05em;
-      /* cream on green = ~8:1 ✅ */
       color: var(--cream);
       line-height: 1;
       margin-bottom: 1rem;
@@ -587,7 +552,6 @@
       display: inline-block;
       padding: 1.1rem 3rem;
       background: var(--gold);
-      /* charcoal on gold = ~10:1 ✅ */
       color: var(--charcoal);
       text-decoration: none;
       font-family: 'Bebas Neue', sans-serif;
@@ -631,22 +595,15 @@
       opacity: 0.65;
     }
 
-    /* ════════════════════════
-       FAQ
-    ════════════════════════ */
     .faq-list { display: flex; flex-direction: column; }
 
-    .faq-item {
-      border-bottom: 1px solid var(--gold-light);
-      overflow: hidden;
-    }
+    .faq-item { border-bottom: 1px solid var(--gold-light); overflow: hidden; }
 
     .faq-q {
       padding: 1.1rem 0;
       font-family: 'Cormorant Garamond', serif;
       font-size: 1rem;
       font-weight: 600;
-      /* charcoal on cream ✅ */
       color: var(--charcoal);
       cursor: pointer;
       display: flex;
@@ -669,27 +626,18 @@
 
     .faq-item.open .faq-icon { transform: rotate(45deg); }
 
-    .faq-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-    }
-
+    .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
     .faq-item.open .faq-body { max-height: 200px; }
 
     .faq-body-inner {
       padding-bottom: 1.2rem;
       font-size: 0.85rem;
       line-height: 1.85;
-      /* #555 on cream = ~7:1 ✅ */
       color: #555;
     }
 
     .faq-body-inner strong { color: var(--terra); font-weight: 500; }
 
-    /* ════════════════════════
-       FOOTER
-    ════════════════════════ */
     footer {
       background: var(--charcoal);
       padding: 3rem 2rem;
@@ -757,20 +705,15 @@
       opacity: 0.2;
     }
 
-    /* ════════════════════════
-       ANIMATIONS
-    ════════════════════════ */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ════════════════════════
-       RESPONSIVE
-    ════════════════════════ */
     @media (max-width: 480px) {
-      .pillars       { grid-template-columns: 1fr; }
-      .details-grid  { grid-template-columns: 1fr; }
+      .pillars      { grid-template-columns: 1fr; }
+      .details-grid { grid-template-columns: 1fr; }
+      .img-banner   { height: 280px; }
     }
 
     @media (min-width: 768px) {
@@ -783,9 +726,6 @@
 </head>
 <body>
 
-<!-- ════════════════════════════════
-     HERO
-════════════════════════════════ -->
 <header class="hero">
   <div class="hero-top">
     <div class="brand">CLUSTER</div>
@@ -811,7 +751,7 @@
 
   <div class="hero-bottom">
     <div class="hero-date">
-      <div class="day">04</div>
+      <div class="day">05</div>
       <div class="when">Avril · 2026</div>
     </div>
     <div class="hero-meta">
@@ -827,18 +767,315 @@
   <div class="scroll-line"></div>
 </div>
 
+<!-- ═══════════════════════════════════════════════════════════════
+     IMAGE SLOT 1: Opening visual break
+     RECOMMENDED IMAGE: Men in conversation, hands gesturing,
+     or close-up of masculine food/drink. Ratio 16:9 or 3:2.
+     TO ADD: Replace the placeholder div with:
+     <img src="../images/men-gathering.jpg" alt="Brothers gathering">
+═══════════════════════════════════════════════════════════════ -->
+<div class="img-banner placeholder">
+  <!-- IMAGE: Men gathering / Conversation / CLUSTER dish -->
+</div>
 
-<!-- ════════════════════════════════
-     CONCEPT
-════════════════════════════════ -->
+
 <section class="section">
   <p class="label">Pourquoi</p>
 
   <p class="statement reveal">
     Le 28 mars, les femmes se sont assises.<br>
-    Le 4 avril, <em>c'est notre tour.</em>
+    Le 5 avril, <em>c'est notre tour.</em>
   </p>
 
   <p class="body-text reveal">
     Pas un séminaire. Pas une conférence. Pas un sermon.
-    Un dîn
+    Un dîner — avec des frères, de la bonne nourriture,
+    et une conversation qu'on n'a jamais le temps d'avoir.
+  </p>
+
+  <p class="body-text reveal" style="margin-top:1rem;">
+    Un urologue sera parmi nous. Pas sur une scène.
+    Assis à la même table. Disponible pour tout ce
+    qu'on n'ose pas demander en temps normal.
+  </p>
+
+  <div class="pillars">
+    <div class="pillar reveal">
+      <div class="pillar-num">01</div>
+      <div class="pillar-title">Santé</div>
+      <div class="pillar-desc">Le corps. L'esprit. Ce qu'on ignore et pourquoi.</div>
+    </div>
+    <div class="pillar reveal">
+      <div class="pillar-num">02</div>
+      <div class="pillar-title">Façades</div>
+      <div class="pillar-desc">Ce qu'on performe. Ce qu'on ressent. La différence.</div>
+    </div>
+    <div class="pillar reveal">
+      <div class="pillar-num">03</div>
+      <div class="pillar-title">Transmission</div>
+      <div class="pillar-desc">Ce qu'on a reçu. Ce qu'on choisit de transmettre.</div>
+    </div>
+    <div class="pillar reveal">
+      <div class="pillar-num">04</div>
+      <div class="pillar-title">Appétit</div>
+      <div class="pillar-desc">Pour la nourriture. Pour la vie. Pour être pleinement présent.</div>
+    </div>
+  </div>
+</section>
+
+
+<div class="format-band">
+  <div class="format-inner">
+    <p class="label">Ce soir-là</p>
+
+    <ul class="format-items">
+      <li class="format-item">On mange bien</li>
+      <li class="format-item">On parle franchement</li>
+      <li class="format-item">On pose les façades</li>
+      <li class="format-item">On rit — parce qu'on peut</li>
+      <li class="format-item">On repart différemment</li>
+    </ul>
+
+    <p class="format-note">
+      Aucune femme ne sera présente ce soir-là.<br>
+      Par conception. Par respect. Par nécessité.
+    </p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     IMAGE SLOT 2: Mid-page visual anchor
+     RECOMMENDED IMAGE: Close-up of food, men's hands,
+     or meaningful moment at table.
+     TO ADD: Uncomment and replace src:
+     <div class="img-banner">
+       <img src="../images/men-moment.jpg" alt="Moment at table">
+     </div>
+═══════════════════════════════════════════════════════════════ -->
+
+
+<section class="section" style="padding-bottom:2rem;">
+  <p class="label">Les Détails</p>
+
+  <div class="details-grid reveal">
+    <div class="d-cell">
+      <div class="d-label">Date</div>
+      <div class="d-value big">Samedi<br>5 Avril</div>
+    </div>
+    <div class="d-cell">
+      <div class="d-label">Heure</div>
+      <div class="d-value big">À partir<br>de 17h</div>
+    </div>
+    <div class="d-cell">
+      <div class="d-label">Lieu</div>
+      <div class="d-value">Mermoz<br>Dakar, Sénégal</div>
+    </div>
+    <div class="d-cell">
+      <div class="d-label">Places</div>
+      <div class="d-value">50 frères<br>limitées</div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" style="padding-top:2rem;">
+  <p class="label">Tarifs</p>
+
+  <p class="pricing-hook reveal">
+    Ce dîner n'est pas pour tout le monde.<br>
+    Spécifiquement : pas pour les femmes.
+    <small>Sauf si vous voulez vraiment payer 1.000.000 fr. 😌</small>
+  </p>
+
+  <div class="price-cards">
+
+    <div class="price-card men reveal">
+      <div class="pc-head">
+        <div class="pc-who">Hommes</div>
+        <div class="pc-badge">Brothers Only</div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-row">
+          <div class="pc-when">Prévente<strong>Avant le 25 Mars 2026</strong></div>
+          <div class="pc-amount">15.000<sup> fr</sup></div>
+        </div>
+        <div class="pc-row">
+          <div class="pc-when">Tarif standard<strong>Après le 25 Mars 2026</strong></div>
+          <div class="pc-amount">20.000<sup> fr</sup></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="price-card women reveal">
+      <div class="pc-head">
+        <div class="pc-who">Femmes</div>
+        <div class="pc-badge">Techniquement possibles</div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-row">
+          <div class="pc-when">Tarif unique<strong>Non-négociable</strong></div>
+          <div class="pc-amount">1.000.000<sup> fr</sup></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="quip reveal">
+      Nous respectons votre curiosité.<br>
+      Nous l'avons prixée en conséquence. 😌
+    </p>
+
+  </div>
+</section>
+
+
+<div class="cta-band">
+  <div class="cta-inner">
+    <h2 class="cta-title">
+      PRENDS<br>TA PLACE.
+    </h2>
+    <p class="cta-sub">
+      Paiement confirme le siège.
+      50 places. Aucun restockage.
+      Les frères qui comprennent n'attendent pas.
+    </p>
+
+    <a
+      href="https://wa.me/221764819205?text=Bonjour%20CLUSTER%20!%20Je%20souhaite%20réserver%20ma%20place%20pour%20NGONAL%20le%205%20avril%202026.%20Mon%20nom%20%3A%20"
+      class="cta-btn"
+      target="_blank"
+      rel="noopener"
+    >
+      RÉSERVER MA PLACE
+    </a>
+
+    <p class="cta-note">Via WhatsApp · Confirmation par paiement</p>
+
+    <div class="pills">
+      <div class="pill">Wave</div>
+      <div class="pill">Orange Money</div>
+      <div class="pill">+221 76 481 9205</div>
+    </div>
+  </div>
+</div>
+
+
+<section class="section">
+  <p class="label">Questions</p>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <div class="faq-q">
+        C'est quoi exactement comme soirée ?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-body"><div class="faq-body-inner">
+        Un dîner. De la vraie nourriture. Une conversation ouverte entre frères.
+        <strong>Aucun panel, aucun sermon, aucune présentation PowerPoint.</strong>
+        Juste des hommes autour d'une table, avec un urologue parmi nous
+        — pas au-dessus de nous.
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        Pourquoi un urologue ?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-body"><div class="faq-body-inner">
+        Parce que les hommes ne vont pas chez le médecin.
+        Parce qu'on ne pose pas certaines questions en public.
+        <strong>Ce soir-là, la question peut être posée autour d'un plat.</strong>
+        Sans jugement. Sans rendez-vous. Sans façade.
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        Est-ce qu'on va parler de polygamie ?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-body"><div class="faq-body-inner">
+        On parle de santé physique, mentale, culturelle et sociale.
+        <strong>La conversation suit les frères dans la pièce.</strong>
+        Si ça vient — ça vient. Mais ce n'est pas l'objectif.
+        L'objectif c'est d'être honnête. Le reste suit.
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        Comment confirmer ma réservation ?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-body"><div class="faq-body-inner">
+        Cliquez "Réserver ma place" — WhatsApp s'ouvre avec un message pré-rempli.
+        Envoyez votre nom. Payez via Wave ou Orange Money au
+        <strong>+221 76 481 9205.</strong>
+        Paiement reçu = place confirmée. Simple.
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">
+        Le rapport avec le dîner du 28 mars ?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-body"><div class="faq-body-inner">
+        Le 28 mars, CLUSTER a créé un espace pour les femmes.
+        Le 5 avril, on crée le même espace pour les hommes.
+        <strong>Ce sont deux parties d'une même conversation.</strong>
+        Même table. Différentes vérités.
+      </div></div>
+    </div>
+
+  </div>
+</section>
+
+
+<footer>
+  <div class="footer-brand">CLUSTER</div>
+  <div class="footer-tagline">Pâtisserie Africainement · Pâtisserie Différemment</div>
+
+  <div class="footer-links">
+    <a href="https://instagram.com/EatCluster" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://tiktok.com/@EatCluster" target="_blank" rel="noopener">TikTok</a>
+    <a href="https://wa.me/221764819205" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+
+  <a href="https://bySouley.github.io/cluster-events/" class="footer-back">
+    ← Tous les événements CLUSTER
+  </a>
+
+  <div class="footer-copy">© 2026 CLUSTER · Patte D'Oie Builders, Dakar, Sénégal</div>
+</footer>
+
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      if (entry.target.classList.contains('format-item')) {
+        const i = [...entry.target.parentNode.children].indexOf(entry.target);
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+      } else {
+        entry.target.classList.add('visible');
+      }
+      obs.unobserve(entry.target);
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal, .format-item').forEach(el => obs.observe(el));
+
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!open) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
